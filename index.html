@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Subtle gradient background for the whole page with a texture */
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%), url('https://www.transparenttextures.com/patterns/light-honeycomb.png');
+            background-repeat: repeat; /* Ensure the texture repeats */
+            background-attachment: fixed; /* Fix the background so it doesn't scroll with content */
+            /* Removed background-size: cover; as it conflicts with background-repeat for textures */
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        body::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        body::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Custom text selection color */
+        ::selection {
+            background-color: #a78bfa; /* purple-400 */
+            color: white;
+        }
+        ::-moz-selection {
+            background-color: #a78bfa; /* purple-400 */
+            color: white;
+        }
+
+        /* Keyframes for a subtle fade-in animation for the name */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animation to the name heading */
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Keyframes for a subtle pulse effect on the profile picture */
+        @keyframes pulseShadow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(167, 139, 250, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(167, 139, 250, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(167, 139, 250, 0);
+            }
+        }
+
+        /* Apply pulse animation to the profile picture on load */
+        .profile-pic-pulse {
+            animation: pulseShadow 2s infinite;
+        }
+
+        /* Custom text shadow for the name for more depth */
+        .text-shadow-lg {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Smooth transitions for hover effects */
+        .transition-all-ease {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover effect for the main card */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* More pronounced shadow */
+        }
+
+        /* Hover effect for individual ID sections */
+        .id-section-hover:hover {
+            transform: translateY(-3px);
+            /* Combined box-shadow for inner and outer effects */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Base styling for icons */
+        .icon-style {
+            font-size: 2.25rem; /* Slightly larger icons */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow on icons */
+        }
+
+        /* Hover effect for the ID text itself */
+        .id-text-hover:hover {
+            transform: scale(1.02);
+            text-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md text-center transition-all-ease card-hover">
+
+        <!-- Name Section with Animation -->
+        <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-6 animate-fade-in-up text-shadow-lg">
+            Sizan Raza
+        </h2>
+
+        <!-- Profile Picture Section -->
+        <div class="mb-6">
+            <img src="sizan.jpg"
+                 alt="Your Profile Picture"
+                 class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-purple-300 shadow-md transition-all-ease hover:scale-105 profile-pic-pulse">
+            <p class="text-gray-600 text-sm mt-2">This is your profile picture!</p>
+        </div>
+
+        <!-- Discord ID Section -->
+        <div class="flex items-center bg-blue-100 p-4 rounded-lg mb-4 shadow-sm id-section-hover transition-all-ease">
+            <!-- Discord Icon -->
+            <span class="text-blue-600 icon-style mr-4">🎮</span>
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Discord ID:</p>
+                <!-- Link to a Discord invite or profile (replace with your actual link) -->
+                <a href="https://discord.gg/ZkqkqKYCKX" target="_blank" class="text-blue-800 text-lg font-semibold hover:underline id-text-hover transition-all-ease">Click to join my Discord</a>
+                <p class="text-gray-500 text-xs mt-1">Opens in new tab</p>
+            </div>
+        </div>
+
+        <!-- Instagram ID Section -->
+        <div class="flex items-center bg-pink-100 p-4 rounded-lg mb-4 shadow-sm id-section-hover transition-all-ease">
+            <!-- Instagram Icon -->
+            <span class="text-pink-600 icon-style mr-4">📸</span>
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Instagram ID:</p>
+                <!-- Link directly to your Instagram profile -->
+                <a href="https://www.instagram.com/sizanraza09" target="_blank" class="text-pink-800 text-lg font-semibold hover:underline id-text-hover transition-all-ease">@Sizanraza09</a>
+                <p class="text-gray-500 text-xs mt-1">Opens in new tab</p>
+            </div>
+        </div>
+
+        <!-- UPI ID Section (remains text as it's not a web link) -->
+        <div class="flex items-center bg-purple-100 p-4 rounded-lg mb-4 shadow-sm id-section-hover transition-all-ease">
+            <!-- UPI Icon -->
+            <span class="text-purple-600 icon-style mr-4">💰</span>
+            <div>
+                <p class="text-gray-600 text-sm font-medium">UPI ID:</p>
+            
+                <p class="text-purple-800 text-lg font-semibold id-text-hover transition-all-ease">codewithali@fam</p>
+                <p class="text-gray-500 text-xs mt-1">This is a payment ID</p>
+            </div>
+        </div>
+
+        <!-- Steam ID Section -->
+        <div class="flex items-center bg-gray-200 p-4 rounded-lg mb-4 shadow-sm id-section-hover transition-all-ease">
+            <!-- Steam Icon -->
+            <span class="text-gray-700 icon-style mr-4">🎮</span>
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Steam ID:</p>
+                <!-- Link to your Steam Community profile -->
+                <a href="https://s.team/p/jhfp-hdpm/kqcfjtbq" target="_blank" class="text-gray-800 text-lg font-semibold hover:underline id-text-hover transition-all-ease">YourSteamID64</a>
+                <p class="text-gray-500 text-xs mt-1">Opens in new tab</p>
+            </div>
+        </div>
+
+        <!-- Gmail ID Section -->
+        <div class="flex items-center bg-red-100 p-4 rounded-lg mb-4 shadow-sm id-section-hover transition-all-ease">
+            <!-- Gmail Icon -->
+            <span class="text-red-600 icon-style mr-4">📧</span>
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Gmail ID:</p>
+                <!-- Mailto link to open email client -->
+                <a href="mailto:sizanraza092007@gmail.com" class="text-red-800 text-lg font-semibold hover:underline id-text-hover transition-all-ease">sizanraza092007@gmail.com</a>
+                <p class="text-gray-500 text-xs mt-1">Click to send email</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
